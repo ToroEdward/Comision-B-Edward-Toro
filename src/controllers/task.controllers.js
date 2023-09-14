@@ -18,6 +18,7 @@ export const ctrlGetTasks = async (req, res) => {
         const task= await TaskModel.findAll();
         if (!task) return res.status(404)
         return res.status(200).json(task)
+
     } catch (error) {
         console.error(error)
         return res.status(500).json({
@@ -42,6 +43,7 @@ export const ctrlUpdateTask = async (req, res) => {
     const { id } = req.params
     try {
         const task = await TaskModel.findByPk(id)
+
         if (!task) {
             return res.status(404).json({
                 message: "Tarea no encontrada"
@@ -71,7 +73,7 @@ export const ctrlDeleteTask = async (req, res) => {
                 message: "Tarea no encontrada"
             })
         }
-        return req.status(200).json({
+        return res.status(200).json({
             message: "Tarea eliminada"
         })
     } catch (error) {

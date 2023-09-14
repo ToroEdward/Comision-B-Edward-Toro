@@ -4,15 +4,15 @@ import { sequelize } from "../config/database.js"
 export const TaskModel = sequelize.define("Task", {
     title: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     description: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     },
     poster: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: true
     } 
 }, {
     timestamps: true

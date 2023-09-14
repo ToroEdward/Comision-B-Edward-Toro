@@ -1,5 +1,4 @@
 import { body } from "express-validator";
-import isURL from "validator/lib/isURL";
 
 export const createTaskSchema = [
     body("title")
