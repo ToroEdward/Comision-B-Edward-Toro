@@ -1,9 +1,12 @@
 import express from "express";
+import { taskRouter } from "./src/routes/task.routes.js";
 
 const app = express();
 app.use(express.json())
 
 const port = 3001;
+
+app.use("/", taskRouter)
 
 app.listen(port, () => {
     console.log(`server listening http://localhost:${port}`)
