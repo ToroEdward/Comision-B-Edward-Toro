@@ -1,5 +1,18 @@
 import { TaskModel } from "../models/Tasks.js"
 
+export const ctrlView = async (req, res) => {
+    try {
+        const tasks = await TaskModel.findAll();
+        res.render('tasks.ejs', {tasks})
+
+    } catch (error) {
+        console.error(error)
+        return res.status(500).json({
+            message: 'Error server'
+        })
+    }
+}
+
 export const ctrlGetTasks = async (req, res) => {
     try {
         const task= await TaskModel.findAll();
